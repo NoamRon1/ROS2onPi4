@@ -15,9 +15,9 @@ services:
       - /dev/mem:/dev/mem
     command: bash -c "source /opt/ros/humble/setup.bash && source /ros2/install/setup.bash && bash"
 
-  ros2_test:
+  ros2_with_automatic_installtion:
     build: .
-    container_name: ros2_test
+    container_name: my_ros2_container
     network_mode: "host"
     privileged: true
     tty: true
@@ -28,4 +28,4 @@ services:
     devices:
       - /dev/gpiomem:/dev/gpiomem
       - /dev/mem:/dev/mem
-    command: bash -c "source /opt/ros/humble/setup.bash && apt update && apt install python3-pip && pip3 install gpiozero && apt install -y python3-rpi.gpio && apt install -y git openssh-client && git config --global user.name 'NoamRon1' && git config --global user.email 'noam2009r@gmail.com' && git config --global --add safe.directory /ros2/first_app && bash"
+    command: bash -c "source /opt/ros/humble/setup.bash && apt update && apt install python3-pip && pip3 install gpiozero && apt install -y python3-rpi.gpio && apt install -y git openssh-client && git config --global user.name 'NoamRon1' && git config --global user.email 'noam2009r@gmail.com' && git config --global --add safe.directory /ros2/first_app && apt install nano && bash"
